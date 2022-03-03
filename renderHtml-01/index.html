@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Render-01</title>
+</head>
+<body>
+  
+  <div id="root"></div>
+  
+  <script>
+    const root = document.querySelector("#root");
+    // buat element h1
+    const element = document.createElement("h1"); // return object
+    element.textContent = "Hello From JS";
+    // tambahin kelas heading-1
+    element.className = "heading-1";
+    
+    // masukan ke div root
+    root.appendChild(element);
+    
+  </script>
+</body>
+</html>

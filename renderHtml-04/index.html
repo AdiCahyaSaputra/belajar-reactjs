@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Render-04</title>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+  <script>
+    const root = document.querySelector("#root");
+    
+    // buat List
+    /** const li1 = React.createElement('li', {
+      children: "Apple"
+    });
+    
+    const li2 = React.createElement('li', {
+      children: "Orange"
+    });
+    
+    const li3 = React.createElement('li', {
+      children: "Grape"
+    }); **/
+    
+    /** const element = React.createElement("ul", {
+      children: [li1, li2, li3]
+    }); **/
+    
+    // sebenernya ...parameter3 dan seterus nya bisa kita jadiin sebagai textContent / children
+    const element = React.createElement("ul", null, 
+    React.createElement("li", null, "Apple"),
+    React.createElement("li", null, "Orange"),
+    React.createElement("li", null, "Grape"),
+    );
+    
+    // render / appendChild tapi pake React
+    // ReactDOM.render(elementNya, mauDiAppendKeMana?);
+    ReactDOM.render(element, root);
+    
+  </script>
+  
+</body>
+</html>

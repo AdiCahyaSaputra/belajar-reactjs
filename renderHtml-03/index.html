@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Render-03</title>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+  <script>
+    const root = document.querySelector("#root");
+    // render banyak element
+    // syarat nya harus ada setidak nya 1 element pembungkus
+    const p1 = React.createElement("p", {
+      children: "Adi Cahya Saputra"
+    });
+    const p2 = React.createElement("p", {
+      children: "Kelas 11 RPL"
+    });
+    
+    // buat element pembungkus
+    /** const element = React.createElement("div", { **/
+      // masukin 2 element pake array
+      /** children: [p1, p2]
+    }); **/
+    
+    // oh tentu saja ada cara lain, tanpa bikin element pembungkus
+    // tapi syarat nya tetep harus ada pembungkus (bisa pake element kosong juga) yang nama nya React.Fragment
+    const element = React.createElement(React.Fragment, {
+      children: [p1, p2]
+    });
+    
+    // render / appendChild tapi pake React
+    // ReactDOM.render(elementNya, mauDiAppendKeMana?);
+    ReactDOM.render(element, root);
+    
+  </script>
+  
+</body>
+</html>

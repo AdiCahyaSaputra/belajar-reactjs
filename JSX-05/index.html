@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSX-05</title>
+</head>
+<body>
+
+  <div id="root"></div>
+  
+  <!-- Babel Js (Compiler Annoying Js syntax) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- React and ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+  <script type="text/babel">
+    const root = document.querySelector("#root");
+    
+    // test ke saktian babel
+    const element = (
+      <ul className="list">
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Grape</li>
+      </ul>
+    );
+    
+    // Hasil Compile nya si babel
+    /** const element = React.createElement("ul", null, 
+    React.createElement("li", null, "Apple"),
+    React.createElement("li", null, "Orange"),
+    React.createElement("li", null, "Grape"),
+    ); **/
+    
+    ReactDOM.render(element, root);
+    
+  </script>
+  
+</body>
+</html>

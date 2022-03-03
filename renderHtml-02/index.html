@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Render-02</title>
+</head>
+<body>
+
+  <div id="root"></div>
+
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+  <script>
+    const root = document.querySelector("#root");
+    // Sama aja, tapi pake React
+    const element = React.createElement("h1", {
+      children: "Hello From ReactJS",
+      className: "heading-1"
+    });
+    
+    // render / appendChild tapi pake React
+    // ReactDOM.render(elementNya, mauDiAppendKeMana?);
+    ReactDOM.render(element, root);
+    
+  </script>
+  
+</body>
+</html>
