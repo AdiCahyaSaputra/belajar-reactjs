@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>reactRender-09</title>
+</head>
+<body>
+
+  <div id="root"></div>
+  
+  <!-- Babel Js (Compiler Annoying Js syntax) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- React and ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+  <script type="text/babel">
+    const root = document.querySelector("#root");
+    
+    // Studi Kasus : Buat Jam yang Real Time
+    // berarti ambil waktu saat ini, lalu update tiap detik
+    function tick() {
+      // buat element nya
+      const element = (
+        <div>
+          <h2>Jam Saat Ini</h2>
+          <p>{new Date().toLocaleString()}</p>
+        </div>
+      );
+      
+      // render element
+      ReactDOM.render(element, root);
+    }
+    
+    // Supaya jam nya bisa ke update tanpa di refresh, bisa pake setInterval
+    setInterval(function() {
+      tick();
+    }, 1000);
+    
+    // aman kan ? g ada masalah seperti nya
+    // yang unik disini adalah, react tidak meng update render semua nya melainkan hanya meng update sesuatu yang berubah
+    // dalam hal ini yaitu jam nya 
+    // kalo g percaya bisa liat di inspect element nya.
+    
+    // bandingin sama Js biasa
+    /** function tick() {
+      const element = `
+        <div>
+          <h2>Jam Saat Ini</h2>
+          <p>${new Date().toLocaleString()}</p>
+        </div>
+      `;
+      
+      root.innerHTML = element;
+    }
+    
+    setInterval(function() {
+      tick(); // Seluruh element div nya di render ulang semua 
+    }, 1000); **/
+    
+  </script>
+  
+</body>
+</html>

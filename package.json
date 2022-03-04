@@ -1,0 +1,25 @@
+{
+  "name": "belajar-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir public -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdiCahyaSaputra/belajar-reactjs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdiCahyaSaputra/belajar-reactjs/issues"
+  },
+  "homepage": "https://github.com/AdiCahyaSaputra/belajar-reactjs#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/preset-react": "^7.16.7"
+  }
+}

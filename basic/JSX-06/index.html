@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSX-06</title>
+</head>
+<body>
+
+  <div id="root"></div>
+  
+  <!-- Babel Js (Compiler Annoying Js syntax) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- React and ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+  <script type="text/babel">
+    const root = document.querySelector("#root");
+    
+    // Kesaktian JSX lainnya.
+    /** const nama = "Adi Cahya Saputra";
+    const kelas = 11;
+    
+    function ngegas(text) {
+      return text.toUpperCase();
+    } **/
+    
+    // jangan lupa tambahin element pembungkus nya yah btw
+    /** const element = (
+      <>
+      <h3>Nama : {nama}</h3>
+      <p>Kelas : {kelas}</p>
+      <h2>nama versi ngegas {ngegas(nama)}</h2>
+      </>
+    ); **/ 
+    // Tinggal tambahin wildcard yekan, apapun bisa masuk yang penting js Valid (variable, function, dsb)
+    
+    // cara ngasih wildcard di props (className, children, dsb)
+    /** const namaKelas = "tittle-content"; **/
+    
+    // yang ini bakalan g jalan, karena wildcard nya g di terjemahin (masih tetep {namaKelas} tulisan nya setelah di compile)
+    /** const element = <h3 className="{namaKelas}">Nama saya {nama}</h3>; **/
+    
+    // ini yang bener nih
+    /** const element = <h3 className={namaKelas}>Nama saya {nama}</h3>; **/
+    
+    // Element HTML yg g punya penutup <img scr="" > harus di kasih Self Closing di JSX <img src="" />
+    const element = <img src="https://tse2.mm.bing.net/th?id=OIP.H6MMkB0oYf93B2hAIReABQHaD4&pid=Api&P=0&w=764&h=400" />
+    
+    
+    ReactDOM.render(element, root);
+    
+  </script>
+  
+</body>
+</html>

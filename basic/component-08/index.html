@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component-08</title>
+</head>
+<body>
+
+  <div id="root"></div>
+  
+  <!-- Babel Js (Compiler Annoying Js syntax) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  
+  <!-- React and ReactDOM -->
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  
+  <script type="text/babel">
+    const root = document.querySelector("#root");
+    // sama aja, cuma kalo component harus diawali uppercase
+    // argumen yang masuk ke component itu g lagi string nama biasa tapi dia jadi props / obj yang isi nya nama
+    function Halo(props) {
+      /** console.log(props); // Obj **/
+      return <p>Halo, {props.name}</p>;
+    }
+    
+    // penulisan nya kayak tag html yg pake self closing tag, dan pops nya jadi atribut di tag html nya
+    const element = (
+      <>
+        <Halo name="Adi" />
+        <Halo name="Cahya" />
+        <Halo name="Saputra" />
+      </>
+    )
+    
+    ReactDOM.render(element, root);
+    
+  </script>
+  
+</body>
+</html>
