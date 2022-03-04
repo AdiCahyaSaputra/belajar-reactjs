@@ -36,12 +36,41 @@ const element = (
   }></div>
 );
 
-ReactDOM.render(element, root);
 **/
 // kalo Nulis Css external ya yaudh sama aja kek biasa
-// extCss-12
+// externalCss-12
 
-const element = /*#__PURE__*/React.createElement("div", {
-  className: "box"
-});
+/**
+const element = (
+  <div className="box"></div>
+); 
+**/
+// Event Handling 
+// event handling / props nya ditulis dengan camelCase
+
+/**
+const element = (
+  <button onClick={
+    function() {
+      alert("Hello World");
+    }
+  }>Click Me</button>
+);
+**/
+// atau
+
+function pesan(pesan) {
+  alert(`Halo ${pesan}`);
+}
+
+const element =
+/*#__PURE__*/
+// Cara ini salah, karena function nya langsung ter eksekusi sebelum di klik
+// <button onClick={pesan("Adi")}>Click Me</button>
+// cara benar
+React.createElement("button", {
+  onClick: function () {
+    pesan("Adi");
+  }
+}, "Click Me");
 ReactDOM.render(element, root);

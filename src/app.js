@@ -1,4 +1,3 @@
-
 const root = document.querySelector("#root");
 
 // reactRender-09
@@ -42,13 +41,46 @@ const element = (
   }></div>
 );
 
-ReactDOM.render(element, root);
 **/
 
 // kalo Nulis Css external ya yaudh sama aja kek biasa
-// extCss-12
+// externalCss-12
+
+/**
 const element = (
   <div className="box"></div>
+); 
+**/
+
+// Event Handling 
+
+// event handling / props nya ditulis dengan camelCase
+/**
+const element = (
+  <button onClick={
+    function() {
+      alert("Hello World");
+    }
+  }>Click Me</button>
+);
+**/
+
+// atau
+function pesan(pesan) {
+  alert(`Halo ${pesan}`);
+}
+
+const element = (
+  // Cara ini salah, karena function nya langsung ter eksekusi sebelum di klik
+  // <button onClick={pesan("Adi")}>Click Me</button>
+  
+  // cara benar
+  <button onClick={
+    function() {
+      pesan("Adi");
+    }
+  }>Click Me</button>
+  
 );
 
 ReactDOM.render(element, root);
