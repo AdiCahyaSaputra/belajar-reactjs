@@ -1,56 +1,4 @@
 const root = document.querySelector("#root");
-
-// conditional rendering pake state
-// studi kasus : Logic login sederhana
-
-/** function App() {
-  // state login
-  const [login, setLogin] = React.useState(false);
-  
-  if(login) {
-    return (
-      <>
-        <h1>Kamu berhasil Login</h1>
-        <button onClick={
-          function() {
-            setLogin(false)
-          }
-        }>Logout</button>
-      </>
-    )
-  }
-  
-  return (
-    <>
-      <h1>Welcome, Please login</h1>
-      <button
-      onClick={
-        function() {
-          setLogin(true);
-        }
-      }>Login</button>
-    </>
-  )
-} **/
-
-// conditional rendering di dalam syntax JSX
-/** function App() {
-  const [login, setLogin] = React.useState(false);
-  
-  // menggunakan ternary operator
-  return (
-    <>
-    <h1>App</h1>
-    <p>{ login ? "Kamu sudah login" : "Kamu belum login" }</p>
-    <button onClick={
-      function() {
-        setLogin(true);
-      }
-    }>Login</button>
-    </>
-  )
-} **/
-
 // Manipulasi DOM menggunakan useEffect dan useRef
 
 /**
@@ -65,7 +13,7 @@ const root = document.querySelector("#root");
  * useRef() -> Tidak render Ulang
 **/
 
-/** function App() {
+function App() {
   const [login, setLogin] = React.useState(false);
   const judulRef = React.useRef(null); // nilai awal nya obj.current = null dulu karena element belum di render
   
@@ -93,7 +41,7 @@ const root = document.querySelector("#root");
     </>
   )
   
-} **/
+}
 
 /**
  * Nah dari semua yg kita pelajari dari kemarin²
@@ -104,4 +52,4 @@ const root = document.querySelector("#root");
  * ada juga porperty buat nanganin state atau klo disini kita nyebut nya useState()
 **/
 
-ReactDOM.render(<App />, root);
+ReactDOM.render(<App/>, root);
