@@ -1,49 +1,35 @@
 const root = document.querySelector("#root");
-
-// Buat list tapi pake array 
+// Simple todo list
 function App() {
-  const fruits = ["Apel", "Pisang", "Mangga", "Chorus"]
+  // input data nya
+  const [tudu, setTudu] = React.useState('');
+  // kumpulan dari inputan data nya
+  const [tudus, setTudus] = React.useState([]);
   
-  /**
-   * Kenapa pake map() ?
-   * karena kalo pake forEach() dia g bakal bisa return apapub
-   * karena sejati nya, function itu klo udh return ya udh kelar gitu
-   * tapi kalo pake map(), ya emang fungsi dari map itu buat nge mapper si array kan 
-   * jadi ya return nya bisa berkali² sesuai jumlah array
-  **/
-  
-  /**
-   * Note
-   * Jangan lupakan curly bracets {}
-   * karena kita masukin javascript expression
-   * ke dalam sytnax JSX
-  **/
+  function submitTudu(event) {
+    // cegah refresh
+    event.preventDefault();
+    // setTudus([tudu]); // salah! karena value tudu lama nya ilang, padahal kan ekspetasi kita tuh si tudus harus nya ngumpulin data lama + data baru nya
+    // console.log(tudus); // 1 elemen doang wkwkwk yg lama kehapus
+    
+    setTudus([...tudus, tudu]); // benar! karena value lama dari tudus di spread (pake ...) terus dimasukin ke array nya + data tudu baru
+    // console.log(tudus); // ada banyak elemen sesuai ekspetasi
+  }
   
   return (
     <>
-    <h1>List Buah Buahan</h1>
-    <ul>
-      { fruits.map(function(fruit) {
-        // return <li>{fruit}</li>
-        // mungkin kalo di real project, key nya bisa product.id mungkin
-        return <li key="{fruit}">{fruit}</li>
-      }) }
-    </ul>
+      <h1>Simpel Tudulis</h1>
+      <form onSubmit={submitTudu}>
+        <input placeholder="tudu.." onChange={(event) => setTudu(event.target.value)} type="text" name="tudu" />
+        <button type="submit">Noted!</button>
+      </form>
+      <ul>
+        { tudus.map(item => {
+          return <li>{item}</li>
+        }) }
+      </ul>
     </>
   )
-  
-  /**
-   * Note
-   * Ada error di console
-   * kita harus kasih props "key" yang isinya unik 
-   * ke element list nya
-   * biar apa ?
-   * biar si react nya bisa mantau perubahan dari si element tersebut
-   * biar kalo di manipulasi dom nya, bisa lebih efisien lah yah
-   * g terlalu makan banyak memo
-   * klo g dikasih "key" ya nanti nya semua element yg di map tadi bakal...
-  **/
-  
 }
 
 ReactDOM.render(<App />, root);
